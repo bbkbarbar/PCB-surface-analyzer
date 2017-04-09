@@ -2,8 +2,10 @@ package hu.barbar.tools.pcb_surface_analyzer;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
@@ -63,7 +65,11 @@ public class App{
         float millingPercentage = ((lightPixels*100f)/(w*h));
         System.out.println("Milling ratio: " + String.format("%.2f", millingPercentage) + "%");
         
-    	
+    	// wait for user input:
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+			String s = br.readLine();
+		} catch (IOException e) {}
     }
     
     static int getColorComponentSum(Color c){
